@@ -1,1 +1,4 @@
 # Arisan
+
+
+Aplikasi untukmengocok hasilarisan
