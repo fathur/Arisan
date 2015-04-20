@@ -33,8 +33,8 @@ Aplikasi berada di folder `public`, jika ingin mengaksesnya dengan ditambahkan `
 
 Jika telah berhasil, silahkan login:
 
-email: admin@admin.com
-password: admin
+- email: admin@admin.com
+- password: admin
 
 ## Fitur
 
@@ -48,3 +48,12 @@ password: admin
 Catatan:
 
 Untuk file excel yang diimport harus memiliki struktur kolom persis sebagai berikut:
+
+					A 				B 			C
+			-----------------------------------------
+	1		| Nomor undian 	| Nama anggota 	| Nama 	|
+			-----------------------------------------
+	2		|				|				|		|
+	3		|				|				|		|
+	4		|				|				|		|
+			-----------------------------------------
