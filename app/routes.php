@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', ['as' => 'home', 'uses' => 'MembersController@index']);
+Route::get('/', ['as' => 'home', 'uses' => 'KocokController@getIndex']);
 
 Route::get('login', array('as' => 'auth.login', 'uses' => 'AuthenticationController@login'));
 Route::post('login', array('as' => 'auth.login', 'uses' => 'AuthenticationController@postLogin'));
@@ -21,6 +21,9 @@ Route::get('register', array('as' => 'auth.register', 'uses' => 'AuthenticationC
 Route::post('members/search', ['as' => 'members.search' , 'uses' => 'MembersController@postSearch']);
 Route::get('undian/search', ['as' => 'undian.getSearch' , 'uses' => 'UndiansController@getSearch']);
 Route::post('undian/search', ['as' => 'undian.search' , 'uses' => 'UndiansController@postSearch']);
+Route::get('search', ['as' => 'search.index' , 'uses' => 'SearchController@getIndex']);
+Route::post('search', ['as' => 'search.result' , 'uses' => 'SearchController@postResult']);
+
 
 Route::resource('users', 'UsersController');
 Route::resource('members', 'MembersController');

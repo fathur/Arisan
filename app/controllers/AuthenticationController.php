@@ -26,7 +26,7 @@ class AuthenticationController extends BaseController {
 
 		    // Authenticate the user
 		    $user = Sentry::authenticate($credentials, false);
-		    return Redirect::to('home');
+		    return Redirect::route('kocok.index');
 	
 		}
 		catch (Cartalyst\Sentry\Users\LoginRequiredException $e)

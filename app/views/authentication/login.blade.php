@@ -1,4 +1,4 @@
-@extends('layouts.back')
+@extends('layouts.front')
 
 @section('css')
 <!-- Custom styles for this template -->
@@ -13,7 +13,7 @@
 
     <h2 class="form-signin-heading">Silahkan Login</h2>
     <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="text" id="inputEmail" class="form-control" placeholder="masuk username" name='email' required autofocus>
+    <input type="text" id="inputEmail" class="form-control" placeholder="masukkan email" name='email' required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
     <input type="password" id="inputPassword" class="form-control" placeholder="password" name='password' required>
     <div class="checkbox">

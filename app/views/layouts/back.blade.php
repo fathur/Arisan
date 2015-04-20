@@ -36,7 +36,13 @@
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li>{{ HTML::linkRoute('users.index','Users') }}</li>
-					<li>{{ HTML::linkRoute('members.index', 'Members') }}</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Members <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li>{{ HTML::linkRoute('members.index', 'View Members') }}</li>
+							<li>{{ HTML::linkRoute('import.form', 'Import Members') }}</li>
+						</ul>
+					</li>
 					<li>{{ HTML::linkRoute('undian.index', 'Undian') }}</li>
 					<li>{{ HTML::linkRoute('kocok.index', 'Kocok') }}</li>
 				</ul>
