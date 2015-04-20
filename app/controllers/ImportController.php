@@ -57,6 +57,28 @@ class ImportController extends \BaseController {
 
 	private function insert($data) 
 	{
-		
+		$member = Member::where('member_number','=',$data['member_number'])->get();
+
+		$memberCount = count($member);
+
+		if ($memberCount == 0) {
+			$imember = new Member;
+			$imember->member_number = $data['member_number'];
+			$imember->member_name = $data['member_name'];
+			$imember->save();
+
+			$imember->undians()->save(new Undian([
+				'undian_number'	=> $data['undian_number']
+			]));
+		} 
+		else 
+		{
+			$imember = $member[0];
+			$imember = $member[0];
+			$imember->undians()->save(new Undian([
+				'undian_number'	=> $data['undian_number']
+			]));
+		}
+
 	}
 }

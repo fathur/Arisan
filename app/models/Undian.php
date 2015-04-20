@@ -8,7 +8,7 @@ class Undian extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = [];
+	protected $fillable = ['undian_number'];
 
 	public function member()
 	{
