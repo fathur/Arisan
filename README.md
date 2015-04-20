@@ -13,7 +13,7 @@ Pindah ke direktori web aplikasi root, kemudian eksekusi kode berikut untuk meny
 $ git clone https://github.com/fathur/Arisan.git
 ```
 
-Jika tidak mempunyai git bisa download langsung zipnya.
+Jika tidak mempunyai git bisa download langsung zipnya. Ingin install `git` baca [ini](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 Selanjutnya setting database, buka file `app/config/database.php` dan isikan sesuai dengan nama database Anda.
 
@@ -25,7 +25,9 @@ $ php artisan migrate
 $ php artisan db:seed
 ```
 
-Keterangan:
+Tidak punya `composer` baca [ini](https://getcomposer.org/download/).
+
+**Keterangan:**
 
 `composer install` untuk mengunduh dependency library yang diperlukan. `php artisan migrate` untuk membuat struktur database. `php artisan db:seed` untuk insert data yang diperlukan.
 
@@ -45,7 +47,7 @@ Jika telah berhasil, silahkan login:
 5. Import dari Excel
 
 
-Catatan:
+__Catatan:__
 
 Untuk file excel yang diimport harus memiliki struktur kolom persis sebagai berikut:
 
