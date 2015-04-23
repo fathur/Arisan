@@ -4,7 +4,7 @@ use Carbon\Carbon;
 
 class KocokController extends \BaseController {
 
-	protected $intervalKocok = 100; // dalam milisecond
+	protected $intervalKocok = 10; // dalam milisecond
 
 	function __construct()
 	{
@@ -18,28 +18,32 @@ class KocokController extends \BaseController {
 			->with('interval', $this->intervalKocok);
 	}
 
-	public function getAcak()
+	public function getNomorUndian()
 	{
-		$undian = Undian::take(1)
-			->join('members','members.id','=','undians.member_id')
-			->where('dikocok', false)
-			->orderBy(DB::raw('RAND()'))
-			->first();
-		return $undian;
+		$undians = Undian::where('dikocok', false)
+			->get();
+		
+		$numbers = [];
+		foreach ($undians as $undian) {
+
+			array_push($numbers, $undian->undian_number);
+		}
+		
+		return $numbers;
 	}
 
-	public function getMenang()
+	public function getMenang($undian_number)
 	{
-		$undian = Undian::take(1)
-			->join('members','members.id','=','undians.member_id')
-			->where('dikocok', false)
-			->orderBy(DB::raw('RAND()'))
+		$undian = Undian::where('dikocok', false)
+			->where('undian_number','=',$undian_number)
 			->first();
+
 		$random = Undian::find($undian->id);
 		$random->dikocok = true;
 		$random->dikocok_date = Carbon::now()->toDateTimeString();
 		$random->save();
-		return $undian;
+
+		return [$undian, $undian->member];
 	}
 
 }

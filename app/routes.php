@@ -34,4 +34,5 @@ Route::post('import', array('as'=>'import.upload','uses'=>'ImportController@post
 
 Route::get('kocok', ['as' => 'kocok.index', 'uses' => 'KocokController@getIndex']);
 Route::get('kocok/acak', ['as' => 'kocok.acak', 'uses' => 'KocokController@getAcak']);
-Route::get('kocok/menang', ['as' => 'kocok.menang', 'uses' => 'KocokController@getMenang']);
+Route::get('kocok/undian', ['as' => 'kocok.undian', 'uses' => 'KocokController@getNomorUndian']);
+Route::get('kocok/menang/{nomor_undian}', ['as' => 'kocok.menang', 'uses' => 'KocokController@getMenang']);

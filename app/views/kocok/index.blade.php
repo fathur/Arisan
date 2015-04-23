@@ -33,7 +33,10 @@
 @section('script')
 <script type="text/javascript">
 
-	var intervalId;
+	var intervalId,
+		undian_number,
+		member_name,
+		member_number;
 
 	$('#btn-kocok').click(function() {
 		var $this = $(this);
@@ -41,22 +44,26 @@
 		$('#btn-reset').addClass('hide');
 		$('#btn-stop').removeClass('hide').removeClass('disabled');
 
-		intervalId = setInterval(function(){
-			$.get("{{ URL::route('kocok.acak') }}", function(resp) {
-				console.log(resp.undian_number);
-				$('#number-kocok').html(resp.undian_number);
-			});
-		}, {{$interval}});
+		$.get("{{ URL::route('kocok.undian') }}", function(resp) {
+			//console.log(typeof(parseInt(resp[0])));
+			intervalId = setInterval(function() {
+				var randomUndian = parseInt(resp[Math.floor(Math.random() * resp.length)]);
+				$('#number-kocok').html(randomUndian);
+				undian_number = randomUndian;
+				
+			}, {{ $interval }});
+		});
 	});
 
 	$('#btn-stop').click(function(){
+		
 		clearInterval(intervalId);
+		
 		$(this).addClass('disabled');
-		$.get("{{ URL::route('kocok.menang') }}", function(resp) {
-			console.log(resp);
-			$('#number-kocok').html(resp.undian_number);
-			$('#win-nama').html(resp.member_name);
-			$('#win-ba').html(resp.member_number);
+		$.get("{{ URL::to('/') }}/kocok/menang/" + undian_number, function(resp) {
+			$('#number-kocok').html(resp[0].undian_number);
+			$('#win-nama').html(resp[0].member.member_name);
+			$('#win-ba').html(resp[0].member.member_number);
 			
 			$('#info-kocok').removeClass('hide')
 				.css({
