@@ -5,14 +5,32 @@ body {
 .counter-holder {
 	margin: 120px auto 0 auto;
 	width: 500px;
-	height: 165px;
-	background-color: red;
+	background-color: #34495E;
 	padding: 50px;
+	border-radius: 20px;
 }
 
 .counter-holder .number {
-	background-color: #555;
+	background-color: #3598DC;
 	color: #FFF;
 	padding: 0px;
+	border-radius: 10px;
 	font-size: 50px;
+}
+
+.counter-holder .info {
+	background-color: #3598DC;
+	color: #FFF;
+	padding: 10px;
+	border-radius: 10px;
+	margin-top: 30px;
+	font-size: 20px;
+}
+
+.counter-action {
+	margin-top: 50px;
+}
+
+.counter-action > .reset {
+	padding: 10px;
 }
