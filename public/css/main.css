@@ -34,3 +34,7 @@ body {
 .counter-action > .reset {
 	padding: 10px;
 }
+
+.counter-action > .stop {
+	padding: 10px;
+}
