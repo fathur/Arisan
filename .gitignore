@@ -6,4 +6,5 @@ composer.lock
 .env.php
 .env
 .DS_Store
+/.idea
 Thumbs.db
