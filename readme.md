@@ -1,25 +1,60 @@
-## Laravel PHP Framework
+# Arisan
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Aplikasi untuk mengocok hasil arisan
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
+## Cara instalasi
 
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
+Buka terminal atau command prompt.
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Pindah ke direktori web aplikasi root, kemudian eksekusi kode berikut untuk menyalin kode dari github.
 
-## Official Documentation
+```
+$ git clone https://github.com/fathur/Arisan.git
+```
 
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
+Jika tidak mempunyai git bisa download langsung zipnya. Ingin install `git` baca [ini](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-### Contributing To Laravel
+Selanjutnya setting database, buka file `app/config/database.php` dan isikan sesuai dengan nama database Anda.
 
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
+Eksekusi kode berikut melalui terminal:
 
-### License
+```
+$ composer install
+$ php artisan migrate
+$ php artisan db:seed
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+Tidak punya `composer` baca [ini](https://getcomposer.org/download/).
+
+**Keterangan:**
+
+`composer install` untuk mengunduh dependency library yang diperlukan. `php artisan migrate` untuk membuat struktur database. `php artisan db:seed` untuk insert data yang diperlukan.
+
+Aplikasi berada di folder `public`, jika ingin mengaksesnya dengan ditambahkan `/public` pada url. Atau dengan setting virtual host web server dan diarahkan ke folder 'public'.
+
+Jika telah berhasil, silahkan login:
+
+- email: admin@admin.com
+- password: admin
+
+## Fitur
+
+1. User Management
+2. Manajemen anggota
+3. Manajemen nomor undian
+4. Pencarian (Search)
+5. Import dari Excel
+
+
+__Catatan:__
+
+Untuk file excel yang diimport harus memiliki struktur kolom persis sebagai berikut:
+
+                    A               B           C
+            -----------------------------------------
+    1       | Nomor undian  | Nama anggota  | Nama  |
+            -----------------------------------------
+    2       |               |               |       |
+    3       |               |               |       |
+    4       |               |               |       |
+            -----------------------------------------
