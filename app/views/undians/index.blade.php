@@ -24,7 +24,7 @@
 					<th>Pemilik Nomor</th>
 					<th>Dikocok</th>
 					<th>Tanggal Dikocok</th>
-					<th>Action</th>
+					{{-- <th>Action</th> --}}
 				</tr>
 			</thead>
 			<tbody>
@@ -32,9 +32,15 @@
 				<tr>
 					<td>{{ $undian->undian_number }}</td>
 					<td>{{ HTML::linkRoute('members.show', $undian->member_name, $undian->member_id) }}</td>
-					<td>{{ $undian->dikocok }}</td>
+					<td>
+					@if($undian->dikocok)
+						<div class="btn btn-success btn-xs disabled">sudah</div>
+					@else
+						<div class="btn btn-danger btn-xs disabled">belum</div>
+					@endif
+					</td>
 					<td>{{ $undian->dikocok_date }}</td>
-					<td></td>
+					{{-- <td></td> --}}
 				</tr>
 				@endforeach
 			</tbody>

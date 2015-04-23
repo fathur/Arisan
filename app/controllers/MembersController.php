@@ -14,7 +14,9 @@ class MembersController extends \BaseController {
 	 */
 	public function index()
 	{
-		$members = Member::paginate(10);
+		$members = Member::with('undians')->paginate(10);
+
+		//dd(DB::getQueryLog());
 
 		return View::make('members.index', compact('members'));
 	}

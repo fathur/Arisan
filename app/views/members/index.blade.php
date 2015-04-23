@@ -25,6 +25,7 @@
 				<tr>
 					<th>Nomor Anggota</th>
 					<th>Nama</th>
+					<th>Voucher</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -32,6 +33,7 @@
 				<tr>
 					<td>{{ HTML::linkRoute('members.show', $member->member_number, $member->id) }}</td>
 					<td>{{ $member->member_name }}</td>
+					<td>{{ count($member->undians) }}</td>
 				</tr>
 				@endforeach
 		</table>
