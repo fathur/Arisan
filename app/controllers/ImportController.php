@@ -52,6 +52,8 @@ class ImportController extends \BaseController {
 				}
 			}
 
+			return Redirect::route('import.form');
+
 		}
 	}
 

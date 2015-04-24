@@ -35,7 +35,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'arisan',
 			'username'  => 'root',
-			'password'  => 'toor',
+			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
