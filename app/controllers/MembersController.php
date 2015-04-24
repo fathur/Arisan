@@ -107,6 +107,12 @@ class MembersController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
+		$member = Member::find($id);
+
+		foreach ($member->undians as $undian) {
+			Undian::destroy($undian->id);
+		}
+
 		Member::destroy($id);
 
 		return Redirect::route('members.index');
