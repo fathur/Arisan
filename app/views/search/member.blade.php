@@ -49,6 +49,7 @@
 <div class="row text-center">
 	<div class="col-sm-12">
 		<h3>{{ $member->member_name }}</h3>
+		<h4>({{ $member->member_number }})</h4>
 	</div>
 </div>
 
