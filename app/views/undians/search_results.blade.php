@@ -1,5 +1,21 @@
 @extends('layouts.back')
 
+@section('style')
+<style type="text/css">
+.information .alert-info a {
+	color: #31708F;
+}
+
+.information .alert-success a {
+	color: #3C763D;
+}
+
+.information .alert-danger a {
+	color: #A94442;
+}
+</style>
+@stop
+
 @section('content')
 <div class="row">
 	<div class="col-sm-12">
@@ -7,32 +23,36 @@
 	</div>	
 </div>
 
-<div class="row">
+<div class="row information">
 	<div class="col-sm-4 text-center">
 		<div class="alert alert-info">
 			<h3>Total Undian</h3>
-			<h2>{{ $status['total'] }}</h2>
+			<h2>
+				<a href="{{ URL::route('undian.search') }}?kocok=all">{{$status['total']}}</a>		
+			</h2>
 		</div>
 	</div>
 	<div class="col-sm-4 text-center">
 		<div class="alert alert-success">
 			<h3>Sudah Dapat</h3>
-			<h2>{{ $status['sudah'] }}</h2>
+			<h2>
+				<a href="{{ URL::route('undian.search') }}?kocok=1">{{$status['sudah']}}</a>		
+			</h2>
 		</div>
 	</div>
 	<div class="col-sm-4 text-center">
 		<div class="alert alert-danger">
 			<h3>Belum Dapat</h3>
-			<h2>{{ $status['belum'] }}</h2>
+			<h2><a href="{{ URL::route('undian.search') }}?kocok=0">{{$status['belum']}}</a></h2>
 		</div>
 	</div>
 </div>
 
 <div class="row">
-	{{ Form::open(['route' => 'undian.search']) }}
+	{{ Form::open(['route' => 'undian.search', 'method' => 'GET']) }}
 	
 	<div class="col-sm-6">
-		{{ Form::text('search', null, [
+		{{ Form::text('search', Input::get('search'), [
 			'class' => 'form-control',
 			'placeholder' => 'Cari nomor undian atau nama'
 		]) }}
@@ -40,7 +60,7 @@
 
 	<div class="col-sm-6">
 		<div class="input-group">
-			{{ Form::select('kocok', array('all' => 'Semua', 1 => 'Sudah Dapat', 0 => 'Belum Dapat'), null, ['class' => 'form-control']) }}
+			{{ Form::select('kocok', array('all' => 'Semua', 1 => 'Sudah Dapat', 0 => 'Belum Dapat'), Input::get('kocok'), ['class' => 'form-control']) }}
 			<span class="input-group-btn">
 				{{ Form::submit('Filter', ['class' => 'btn btn-primary']) }}
 			</span>

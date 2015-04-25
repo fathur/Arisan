@@ -10,8 +10,10 @@
 </div>
 <div class="row">
 	<div class="col-sm-6">
-		{{ HTML::linkRoute('members.edit', 'Edit', $member->id, ['class' => 'btn btn-primary pull-left']) }}
-		{{ HTML::linkRoute('undian.generate', 'Generate Nomor Undian', $member->member_number, ['class' => 'btn btn-primary pull-left']) }}
+		<div class="btn-group" role="group" aria-label="memberaction">
+			{{ HTML::linkRoute('members.edit', 'Edit', $member->id, ['class' => 'btn btn-primary pull-left']) }}
+			{{ HTML::linkRoute('undian.generate', 'Generate Nomor Undian', $member->member_number, ['class' => 'btn btn-primary pull-left']) }}
+		</div>
 	</div>
 	<div class="col-sm-6">
 		{{ Form::open(array('route' => ['members.destroy', $member->id], 'class' => ' pull-right', 'method' => 'DELETE')) }}
@@ -22,7 +24,7 @@
 <div class="row">
 	<div class="col-sm-12">
 
-		<table class="table table-condensed table-bordered">
+		<table class="table table-condensed table-bordered table-striped">
 			<thead>
 				<tr>
 					<th>Nomor Undian</th>

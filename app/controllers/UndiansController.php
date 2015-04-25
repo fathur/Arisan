@@ -38,7 +38,7 @@ class UndiansController extends \BaseController {
 		return $this->index();
 	}
 
-	public function postSearch()
+	public function getResults()
 	{
 		$search = Input::get('search');
 		$kocok = Input::get('kocok');

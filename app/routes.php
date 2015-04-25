@@ -24,7 +24,7 @@ Route::get('members/truncate', ['as' => 'members.truncate' , 'uses' => 'MembersC
 Route::get('undian', ['as' => 'undian.all' , 'uses' => 'UndiansController@getAll']);
 Route::get('undian/generate/{member_number}', ['as' => 'undian.generate' , 'uses' => 'UndiansController@getGenerate']);
 Route::get('undian/search', ['as' => 'undian.getSearch' , 'uses' => 'UndiansController@getSearch']);
-Route::post('undian/search', ['as' => 'undian.search' , 'uses' => 'UndiansController@postSearch']);
+Route::get('undian/Search:Results', ['as' => 'undian.search' , 'uses' => 'UndiansController@getResults']);
 Route::get('undian/undo/{id}', ['as' => 'undian.undo' , 'uses' => 'UndiansController@getUndo']);
 
 Route::get('search', ['as' => 'search.index' , 'uses' => 'SearchController@getIndex']);
