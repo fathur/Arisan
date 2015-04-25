@@ -19,11 +19,18 @@ class UndiansController extends \BaseController {
 
 	public function getAll()
 	{
-		$undians = Undian::join('members','members.id', '=', 'undians.member_id')
-			->orderBy('undian_number', 'asc')
+		$undians = Undian::orderBy('undian_number', 'asc')
 			->paginate(10);
 
-		return View::make('undians.index', compact('undians'));
+		$status = [
+			'total' => Undian::all()->count(),
+			'sudah' => Undian::where('dikocok','=',true)->count(),
+			'belum' => Undian::where('dikocok','=',false)->count()
+		];
+
+		return View::make('undians.index', compact('undians'))
+			->with('undians', $undians)
+			->with('status', $status);
 	}
 
 	public function getSearch()

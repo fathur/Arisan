@@ -8,6 +8,27 @@
 </div>
 
 <div class="row">
+	<div class="col-sm-4 text-center">
+		<div class="alert alert-info">
+			<h3>Total Undian</h3>
+			<h2>{{ $status['total'] }}</h2>
+		</div>
+	</div>
+	<div class="col-sm-4 text-center">
+		<div class="alert alert-success">
+			<h3>Sudah Dapat</h3>
+			<h2>{{ $status['sudah'] }}</h2>
+		</div>
+	</div>
+	<div class="col-sm-4 text-center">
+		<div class="alert alert-danger">
+			<h3>Belum Dapat</h3>
+			<h2>{{ $status['belum'] }}</h2>
+		</div>
+	</div>
+</div>
+
+<div class="row">
 	{{ Form::open(['route' => 'undian.search']) }}
 	
 	<div class="col-sm-6">
@@ -45,7 +66,7 @@
 				@foreach($undians as $undian)
 				<tr>
 					<td>{{ $undian->undian_number }}</td>
-					<td>{{ HTML::linkRoute('members.show', $undian->member_name, $undian->member_id) }}</td>
+					<td>{{ HTML::linkRoute('members.show', $undian->member->member_name, $undian->member->id) }}</td>
 					<td>
 					@if($undian->dikocok)
 						<div class="btn btn-success btn-xs disabled">sudah</div>
