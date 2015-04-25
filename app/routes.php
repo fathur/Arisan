@@ -23,6 +23,8 @@ Route::get('members/truncate', ['as' => 'members.truncate' , 'uses' => 'MembersC
 
 Route::get('undian/search', ['as' => 'undian.getSearch' , 'uses' => 'UndiansController@getSearch']);
 Route::post('undian/search', ['as' => 'undian.search' , 'uses' => 'UndiansController@postSearch']);
+Route::get('undian/undo/{id}', ['as' => 'undian.undo' , 'uses' => 'UndiansController@getUndo']);
+
 Route::get('search', ['as' => 'search.index' , 'uses' => 'SearchController@getIndex']);
 Route::post('search', ['as' => 'search.result' , 'uses' => 'SearchController@postResult']);
 

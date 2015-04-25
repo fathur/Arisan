@@ -1,24 +1,6 @@
 @extends('layouts.back')
 
 @section('content')
-<div class="modal fade" id="modalDestroyMembers" tabindex="-1" role="dialog" aria-labelledby="modalDestroyMembersLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="modalDestroyMembersLabel">Modal title</h4>
-			</div>
-			<div class="modal-body">
-				Apakah Anda yakin mau menghapus semua anggota tanpa tersisa?
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
-				<a href="{{ route('members.truncate') }}" class="btn btn-danger" id="destroy-members">Ya</a>
-			</div>
-		</div>
-	</div>
-</div>
-
 <div class="row">
 	<div class="col-sm-12">
 		<h1>Daftar Anggota</h1>
@@ -75,6 +57,24 @@
 <div class="row">
 	<div class="col-sm-12">
 		{{ $members->links(); }}
+	</div>
+</div>
+
+<div class="modal fade" id="modalDestroyMembers" tabindex="-1" role="dialog" aria-labelledby="modalDestroyMembersLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="modalDestroyMembersLabel">Modal title</h4>
+			</div>
+			<div class="modal-body">
+				Apakah Anda yakin mau menghapus semua anggota tanpa tersisa?
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+				<a href="{{ route('members.truncate') }}" class="btn btn-danger" id="destroy-members">Ya</a>
+			</div>
+		</div>
 	</div>
 </div>
 @stop

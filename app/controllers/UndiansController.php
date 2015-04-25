@@ -121,7 +121,9 @@ class UndiansController extends \BaseController {
 		$search = Input::get('search');
 		$kocok = Input::get('kocok');
 
-		$undians = Undian::where(function($query) use ($search)
+		$undians = DB::table('undians')
+			->select(DB::raw('undians.id as undian_id'), 'member_id', 'undian_number', 'dikocok', 'dikocok_date', 'undians.created_at', 'undians.updated_at', 'member_number', 'member_name')
+			->where(function($query) use ($search)
 			{
 				$query->where('undian_number','like','%'.$search.'%');
 				$query->orWhere('member_name','like','%'.$search.'%');
@@ -140,6 +142,15 @@ class UndiansController extends \BaseController {
 			->paginate(10);
 			
 		return View::make('undians.index', compact('undians'));
+	}
+
+	public function getUndo($id)
+	{
+		$undian = Undian::find($id);
+		$undian->dikocok = false;
+		$undian->save();
+
+		return Redirect::route('undian.index');
 	}
 
 }
