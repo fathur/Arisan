@@ -62,8 +62,16 @@ class UndiansController extends \BaseController {
 			->join('members','members.id', '=', 'undians.member_id')
 			->orderBy('undian_number', 'asc')
 			->paginate(10);
+
+		$status = [
+			'total' => Undian::all()->count(),
+			'sudah' => Undian::where('dikocok','=',true)->count(),
+			'belum' => Undian::where('dikocok','=',false)->count()
+		];
 			
-		return View::make('undians.index', compact('undians'));
+		return View::make('undians.search_results', compact('undians'))
+			->with('undians', $undians)
+			->with('status', $status);
 	}
 
 	public function getUndo($id)
