@@ -80,7 +80,7 @@ class UndiansController extends \BaseController {
 		$undian->dikocok = false;
 		$undian->save();
 
-		return Redirect::route('undian.index');
+		return Redirect::route('undian.all');
 	}
 
 	public function getGenerate($member_number)
