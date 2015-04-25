@@ -20,9 +20,9 @@
 
 <div class="row">
 	<div class="col-sm-12">
-		{{ Form::open(['route' => 'members.search']) }}
+		{{ Form::open(['route' => 'members.search', 'method' => 'GET']) }}
 		<div class="input-group">
-			{{ Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Cari Nama atau Nomor Anggota']) }}
+			{{ Form::text('search', Input::get('search'), ['class' => 'form-control', 'placeholder' => 'Cari Nama atau Nomor Anggota']) }}
 			<span class="input-group-btn">
 				{{ Form::submit('Cari!', ['class' => 'btn btn-primary']); }}
 			</span>
@@ -67,7 +67,7 @@
 
 <div class="row">
 	<div class="col-sm-12">
-		{{ $members->links(); }}
+		{{ $members->appends(array('search' => Input::get('search')))->links(); }}
 	</div>
 </div>
 

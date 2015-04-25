@@ -118,7 +118,7 @@ class MembersController extends \BaseController {
 		return Redirect::route('members.index');
 	}
 
-	public function postSearch()
+	public function getSearch()
 	{
 		$searchInput = Input::get('search');
 		$members = Member::where('member_name','like','%'.$searchInput.'%')
