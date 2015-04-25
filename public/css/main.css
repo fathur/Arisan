@@ -2,6 +2,10 @@ body {
 	padding-top: 50px;
 }
 
+.container > .row {
+	margin: 10px 0;
+}
+
 .counter-holder {
 	margin: 120px auto 0 auto;
 	width: 500px;
@@ -37,4 +41,16 @@ body {
 
 .counter-action > .stop {
 	padding: 10px;
+}
+
+.information .alert-info a {
+	color: #31708F;
+}
+
+.information .alert-success a {
+	color: #3C763D;
+}
+
+.information .alert-danger a {
+	color: #A94442;
 }

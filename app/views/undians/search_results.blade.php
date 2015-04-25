@@ -1,21 +1,5 @@
 @extends('layouts.back')
 
-@section('style')
-<style type="text/css">
-.information .alert-info a {
-	color: #31708F;
-}
-
-.information .alert-success a {
-	color: #3C763D;
-}
-
-.information .alert-danger a {
-	color: #A94442;
-}
-</style>
-@stop
-
 @section('content')
 <div class="row">
 	<div class="col-sm-12">

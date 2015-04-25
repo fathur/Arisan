@@ -24,7 +24,7 @@
 <div class="row">
 	<div class="col-sm-12">
 
-		<table class="table table-condensed table-bordered table-striped">
+		<table class="table table-condensed table-striped">
 			<thead>
 				<tr>
 					<th>Nomor Undian</th>
