@@ -66,16 +66,17 @@ class UndiansController extends \BaseController {
 				}
 			})
 			->join('members','members.id', '=', 'undians.member_id')
+			->orderBy('dikocok_date', 'desc')
 			->orderBy('undian_number', 'asc')
 			->paginate(10);
+
+		//dd(DB::getQueryLog());
 
 		$status = [
 			'total' => Undian::all()->count(),
 			'sudah' => Undian::where('dikocok','=',true)->count(),
 			'belum' => Undian::where('dikocok','=',false)->count()
 		];
-
-		//dd(DB::getQueryLog());
 			
 		return View::make('undians.search_results', compact('undians'))
 			->with('undians', $undians)
