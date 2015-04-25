@@ -128,4 +128,14 @@ class MembersController extends \BaseController {
 		return View::make('members.index', compact('members'));
 	}
 
+	/** Truncate all data members and undians
+	 */
+	public function getTruncate()
+	{
+		DB::table('members')->truncate();
+		DB::table('undians')->truncate();
+
+		return Redirect::route('members.index');
+	}
+
 }

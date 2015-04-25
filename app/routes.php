@@ -19,6 +19,8 @@ Route::get('logout', array('as' => 'auth.logout', 'uses' => 'AuthenticationContr
 Route::get('register', array('as' => 'auth.register', 'uses' => 'AuthenticationController@register'));
 
 Route::post('members/search', ['as' => 'members.search' , 'uses' => 'MembersController@postSearch']);
+Route::get('members/truncate', ['as' => 'members.truncate' , 'uses' => 'MembersController@getTruncate']);
+
 Route::get('undian/search', ['as' => 'undian.getSearch' , 'uses' => 'UndiansController@getSearch']);
 Route::post('undian/search', ['as' => 'undian.search' , 'uses' => 'UndiansController@postSearch']);
 Route::get('search', ['as' => 'search.index' , 'uses' => 'SearchController@getIndex']);
