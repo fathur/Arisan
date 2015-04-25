@@ -21,6 +21,8 @@ Route::get('register', array('as' => 'auth.register', 'uses' => 'AuthenticationC
 Route::post('members/search', ['as' => 'members.search' , 'uses' => 'MembersController@postSearch']);
 Route::get('members/truncate', ['as' => 'members.truncate' , 'uses' => 'MembersController@getTruncate']);
 
+Route::get('undian', ['as' => 'undian.all' , 'uses' => 'UndiansController@getAll']);
+Route::get('undian/generate/{member_number}', ['as' => 'undian.generate' , 'uses' => 'UndiansController@getGenerate']);
 Route::get('undian/search', ['as' => 'undian.getSearch' , 'uses' => 'UndiansController@getSearch']);
 Route::post('undian/search', ['as' => 'undian.search' , 'uses' => 'UndiansController@postSearch']);
 Route::get('undian/undo/{id}', ['as' => 'undian.undo' , 'uses' => 'UndiansController@getUndo']);
@@ -31,7 +33,7 @@ Route::post('search', ['as' => 'search.result' , 'uses' => 'SearchController@pos
 
 Route::resource('users', 'UsersController');
 Route::resource('members', 'MembersController');
-Route::resource('undian', 'UndiansController');
+Route::resource('members.undian', 'UndiansController', ['only' => ['destroy']]);
 
 Route::get('import', array('as'=>'import.form','uses'=>'ImportController@getUpload'));
 Route::post('import', array('as'=>'import.upload','uses'=>'ImportController@postUpload'));
@@ -40,3 +42,9 @@ Route::get('kocok', ['as' => 'kocok.index', 'uses' => 'KocokController@getIndex'
 Route::get('kocok/acak', ['as' => 'kocok.acak', 'uses' => 'KocokController@getAcak']);
 Route::get('kocok/undian', ['as' => 'kocok.undian', 'uses' => 'KocokController@getNomorUndian']);
 Route::get('kocok/menang/{nomor_undian}', ['as' => 'kocok.menang', 'uses' => 'KocokController@getMenang']);
+
+
+Route::get('test', function() {
+	$undian = Undian::where('undian_number','=',232699)->get();
+	dd(count($undian));
+});

@@ -43,7 +43,7 @@
 							<li>{{ HTML::linkRoute('import.form', 'Import Members') }}</li>
 						</ul>
 					</li>
-					<li>{{ HTML::linkRoute('undian.index', 'Undian') }}</li>
+					<li>{{ HTML::linkRoute('undian.all', 'Undian') }}</li>
 					<li>{{ HTML::linkRoute('kocok.index', 'Kocok') }}</li>
 				</ul>
 
