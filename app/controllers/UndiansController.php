@@ -49,8 +49,10 @@ class UndiansController extends \BaseController {
 			->select(DB::raw('undians.id as undian_id'), 'member_id', 'undian_number', 'dikocok', 'dikocok_date', 'undians.created_at', 'undians.updated_at', 'member_number', 'member_name')
 			->where(function($query) use ($search)
 			{
-				$query->where('undian_number','like','%'.$search.'%');
-				$query->orWhere('member_name','like','%'.$search.'%');
+				if ($search != '') {
+					$query->where('undian_number','like','%'.$search.'%');
+					$query->orWhere('member_name','like','%'.$search.'%');
+				}
 			})
 			->where(function($query) use ($kocok)
 			{
@@ -58,7 +60,9 @@ class UndiansController extends \BaseController {
 					$query->where('dikocok','=',0);
 					$query->orWhere('dikocok','=',1);
 				} else {
-					$query->where('dikocok','=',$kocok);
+					if (!is_null($kocok)) {
+						$query->where('dikocok','=',$kocok);
+					}
 				}
 			})
 			->join('members','members.id', '=', 'undians.member_id')
