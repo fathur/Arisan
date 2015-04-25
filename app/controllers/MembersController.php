@@ -127,7 +127,11 @@ class MembersController extends \BaseController {
 			->orWhere('member_number', 'like', '%'.$searchInput.'%')
 			->paginate(10);
 
-		return View::make('members.index', compact('members'));
+		$total = Member::all()->count();
+		
+		return View::make('members.index')
+			->with('members', $members)
+			->with('total', $total);
 	}
 
 	/** Truncate all data members and undians
