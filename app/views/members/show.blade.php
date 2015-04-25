@@ -39,7 +39,7 @@
 				<tr>
 					<th>Nomor Undian</th>
 					<th>Tanggal Mendapatkan Undian</th>
-					<th>Action</th>
+					<th></th>
 
 				</tr>
 			</thead>

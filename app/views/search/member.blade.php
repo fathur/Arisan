@@ -45,17 +45,37 @@
 	</div>
 </div>
 
-{{--
-@if($memberCount == 0)
-<div class="row text-center">
-	<div class="col-sm-12">
-		<h3>{{ $message }}</h3>	
-	</div>
-</div>
-@else
+
 <div class="row text-center">
 	<div class="col-sm-12">
 		<h3>{{ $member->member_name }}</h3>
+	</div>
+</div>
+
+<div class="row information">
+	<div class="col-sm-4 text-center">
+		<div class="alert alert-warning">
+			<h4>Total Undian</h4>
+			<h3>
+				{{$status['total']}}
+			</h3>
+		</div>
+	</div>
+	<div class="col-sm-4 text-center">
+		<div class="alert alert-warning">
+			<h4>Sudah Dikocok</h4>
+			<h3>
+				{{$status['sudah']}}
+			</h3>
+		</div>
+	</div>
+	<div class="col-sm-4 text-center">
+		<div class="alert alert-warning">
+			<h4>Belum Dikocok</h4>
+			<h3>
+				{{$status['belum']}}
+			</h3>
+		</div>
 	</div>
 </div>
 
@@ -63,25 +83,13 @@
 
 	@foreach($member->undians as $undian)
 	<div class="col-sm-4">
+		@if($undian->dikocok)
+		<div class="alert alert-danger">{{$undian->undian_number}}</div>
+		@else
 		<div class="alert alert-info">{{$undian->undian_number}}</div>
+		@endif
 	</div>
 	@endforeach
 	
 </div>
-@endif
---}}
-
-<div class="row search-result">
-	<div class="col-sm-12">
-		@foreach($results as $result)
-		<a href="{{ URL::route('search.member', $result['num'])}}?search={{Input::get('search') }}" class="item">
-			<div class="item">
-				<div class="title">{{ $result['key'] }}:</div>
-				<div class="content">{{ $result['val'] }}</div>
-			</div>
-		</a>
-		@endforeach
-	</div>
-</div>
-
 @stop

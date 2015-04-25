@@ -15,7 +15,7 @@
 		<h2>Pencarian</h2>
 
 		<div class="search-container">
-			{{ Form::open(['route' => 'search.result']) }}
+			{{ Form::open(['route' => 'search.result', 'method' => 'GET']) }}
 				<div class="form-group">
 					{{ Form::text('search', null, ['class' => 'form-control input-lg', 'placeholder' => 'Cari nama, nomor anggota, atau nomor undian']) }}
 				</div>

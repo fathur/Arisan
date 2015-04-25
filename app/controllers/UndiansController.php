@@ -70,6 +70,8 @@ class UndiansController extends \BaseController {
 			'sudah' => Undian::where('dikocok','=',true)->count(),
 			'belum' => Undian::where('dikocok','=',false)->count()
 		];
+
+		//dd(DB::getQueryLog());
 			
 		return View::make('undians.search_results', compact('undians'))
 			->with('undians', $undians)

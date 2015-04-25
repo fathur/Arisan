@@ -28,8 +28,8 @@ Route::get('undian/Search:Results', ['as' => 'undian.search' , 'uses' => 'Undian
 Route::get('undian/undo/{id}', ['as' => 'undian.undo' , 'uses' => 'UndiansController@getUndo']);
 
 Route::get('search', ['as' => 'search.index' , 'uses' => 'SearchController@getIndex']);
-Route::post('search', ['as' => 'search.result' , 'uses' => 'SearchController@postResult']);
-
+Route::get('search::Results', ['as' => 'search.result' , 'uses' => 'SearchController@getResult']);
+Route::get('search/{member_number}', ['as' => 'search.member' , 'uses' => 'SearchController@getMember']);
 
 Route::resource('users', 'UsersController');
 Route::resource('members', 'MembersController');
