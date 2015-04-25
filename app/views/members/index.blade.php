@@ -9,6 +9,17 @@
 
 <div class="row">
 	<div class="col-sm-12">
+		@if (Session::has('message'))
+		<div class="alert {{ Session::get('alertClass') }} alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			{{ Session::get('message') }}
+		</div>
+		@endif
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
 		{{ Form::open(['route' => 'members.search']) }}
 		<div class="input-group">
 			{{ Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Cari Nama atau Nomor Anggota']) }}

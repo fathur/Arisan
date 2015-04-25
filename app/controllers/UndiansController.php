@@ -14,6 +14,8 @@ class UndiansController extends \BaseController {
 	{
 		Undian::destroy($undianId);
 
+		Session::flash('alertClass', 'alert-danger');
+		Session::flash('message', 'Berhasil menghapus Voucher');
 		return Redirect::route('members.show', $memberId);
 	}
 
@@ -80,6 +82,8 @@ class UndiansController extends \BaseController {
 		$undian->dikocok = false;
 		$undian->save();
 
+		Session::flash('alertClass', 'alert-warning');
+		Session::flash('message', 'Berhasil!! Anda telah membatalkan '.$undian->member->member_name.' untuk mendapatkan undian');
 		return Redirect::route('undian.all');
 	}
 
@@ -88,6 +92,8 @@ class UndiansController extends \BaseController {
 		$member = Member::where('member_number','=',$member_number)->first();
 
 		if ($this->generate($member)) {
+			Session::flash('alertClass', 'alert-success');
+			Session::flash('message', 'Voucher baru telah terbuat');
 			return Redirect::route('members.show', $member->id);
 		}	
 	}

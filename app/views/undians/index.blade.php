@@ -7,6 +7,17 @@
 	</div>	
 </div>
 
+<div class="row">
+	<div class="col-sm-12">
+		@if (Session::has('message'))
+		<div class="alert {{ Session::get('alertClass') }} alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			{{ Session::get('message') }}
+		</div>
+		@endif
+	</div>
+</div>
+
 <div class="row information">
 	<div class="col-sm-4 text-center">
 		<div class="alert alert-info">

@@ -52,6 +52,8 @@ class UsersController extends \BaseController {
 			'activated' 	=> true,
 		));
 
+		Session::flash('alertClass', 'alert-success');
+		Session::flash('message', 'Berhasil membuat user baru');
 		return Redirect::route('users.index');
 	}
 
@@ -112,7 +114,8 @@ class UsersController extends \BaseController {
 
     	$user->save();
 
-
+		Session::flash('alertClass', 'alert-success');
+		Session::flash('message', 'Berhasil mengupdate user '. Input::get('first_name')	);
 		return Redirect::route('users.index');
 	}
 
@@ -126,6 +129,8 @@ class UsersController extends \BaseController {
 	{
 		User::destroy($id);
 
+		Session::flash('alertClass', 'alert-danger');
+		Session::flash('message', 'Berhasil menghapus user');
 		return Redirect::route('users.index');
 	}
 

@@ -46,9 +46,9 @@ class MembersController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		Member::create($data);
+		$member = Member::create($data);
 
-		return Redirect::route('members.index');
+		return Redirect::route('members.show', $member->id);
 	}
 
 	/**

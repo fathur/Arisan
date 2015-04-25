@@ -3,9 +3,19 @@
 @section('content')
 <div class="row">
 	<div class="col-sm-12">
+		@if (Session::has('message'))
+		<div class="alert {{ Session::get('alertClass') }} alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			{{ Session::get('message') }}
+		</div>
+		@endif
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
 		<h1>{{$member->member_name}}</h1>
 		<h3>{{$member->member_number}}</h3>
-		
 	</div>
 </div>
 <div class="row">

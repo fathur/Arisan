@@ -52,6 +52,7 @@ class ImportController extends \BaseController {
 				}
 			}
 
+			Session::flash('message', 'Successfully import to database!');
 			return Redirect::route('import.form');
 
 		}
