@@ -106,7 +106,7 @@
 
 <div class="row">
 	<div class="col-sm-12">
-		{{ $undians->links(); }}
+		{{ $undians->appends(array('kocok' => Input::get('kocok')))->links(); }}
 	</div>
 </div>
 @stop
