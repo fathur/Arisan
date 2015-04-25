@@ -16,9 +16,11 @@ class MembersController extends \BaseController {
 	{
 		$members = Member::with('undians')->paginate(10);
 
-		//dd(DB::getQueryLog());
+		$total = Member::all()->count();
 
-		return View::make('members.index', compact('members'));
+		return View::make('members.index')
+			->with('members', $members)
+			->with('total', $total);
 	}
 
 	/**

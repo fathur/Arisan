@@ -18,6 +18,15 @@
 	</div>
 </div>
 
+<div class="row information">
+	<div class="col-sm-offset-4 col-sm-4 text-center">
+		<div class="alert alert-info">
+			<h3>Total Member</h3>
+			<h2>{{$total}}</h2>
+		</div>
+	</div>
+</div>
+
 <div class="row">
 	<div class="col-sm-12">
 		{{ Form::open(['route' => 'members.search', 'method' => 'GET']) }}
@@ -32,10 +41,10 @@
 </div>
 
 <div class="row">
-	<div class="col-sm-6">
+	<div class="col-xs-6">
 		{{ HTML::linkRoute('members.create', 'Add', [], ['class' => 'btn btn-primary']) }}
 	</div>
-	<div class="col-sm-6">
+	<div class="col-xs-6">
 		<buttoon id="destroy-members" class="pull-right btn btn-danger" data-toggle="modal" data-target="#modalDestroyMembers">
 			<span class="glyphicon glyphicon-warning-sign"></span> Destroy
 		</buttoon>

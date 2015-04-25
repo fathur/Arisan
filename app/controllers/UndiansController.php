@@ -67,6 +67,7 @@ class UndiansController extends \BaseController {
 			})
 			->join('members','members.id', '=', 'undians.member_id')
 			->orderBy('dikocok_date', 'desc')
+			//->orderBy('dikocok', 'desc')
 			->orderBy('undian_number', 'asc')
 			->paginate(10);
 
