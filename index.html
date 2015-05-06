@@ -19,7 +19,72 @@
     </section>
 
     <section class="main-content">
-      <p>Under development</p>
+      <h1>
+<a id="arisan" class="anchor" href="#arisan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arisan</h1>
+
+<p>Aplikasi untuk mengocok hasil arisan</p>
+
+<h2>
+<a id="cara-instalasi" class="anchor" href="#cara-instalasi" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cara instalasi</h2>
+
+<p>Buka terminal atau command prompt.</p>
+
+<p>Pindah ke direktori web aplikasi root, kemudian eksekusi kode berikut untuk menyalin kode dari github.</p>
+
+<pre><code>$ git clone https://github.com/fathur/Arisan.git
+</code></pre>
+
+<p>Jika tidak mempunyai git bisa download langsung zipnya. Ingin install <code>git</code> baca <a href="http://git-scm.com/book/en/v2/Getting-Started-Installing-Git">ini</a></p>
+
+<p>Selanjutnya setting database, buka file <code>app/config/database.php</code> dan isikan sesuai dengan nama database Anda.</p>
+
+<p>Eksekusi kode berikut melalui terminal:</p>
+
+<pre><code>$ composer install
+$ php artisan migrate
+$ php artisan db:seed
+</code></pre>
+
+<p>Tidak punya <code>composer</code> baca <a href="https://getcomposer.org/download/">ini</a>.</p>
+
+<p><strong>Keterangan:</strong></p>
+
+<p><code>composer install</code> untuk mengunduh dependency library yang diperlukan. <code>php artisan migrate</code> untuk membuat struktur database. <code>php artisan db:seed</code> untuk insert data yang diperlukan.</p>
+
+<p>Aplikasi berada di folder <code>public</code>, jika ingin mengaksesnya dengan ditambahkan <code>/public</code> pada url. Atau dengan setting virtual host web server dan diarahkan ke folder 'public'.</p>
+
+<p>Jika telah berhasil, silahkan login:</p>
+
+<ul>
+<li>email: <a href="mailto:admin@admin.com">admin@admin.com</a>
+</li>
+<li>password: admin</li>
+</ul>
+
+<h2>
+<a id="fitur" class="anchor" href="#fitur" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fitur</h2>
+
+<ol>
+<li>User Management</li>
+<li>Manajemen anggota</li>
+<li>Manajemen nomor undian</li>
+<li>Pencarian (Search)</li>
+<li>Import dari Excel</li>
+</ol>
+
+<p><strong>Catatan:</strong></p>
+
+<p>Untuk file excel yang diimport harus memiliki struktur kolom persis sebagai berikut:</p>
+
+<pre><code>                A               B           C
+        -----------------------------------------
+1       | Nomor undian  | Nama anggota  | Nama  |
+        -----------------------------------------
+2       |               |               |       |
+3       |               |               |       |
+4       |               |               |       |
+        -----------------------------------------
+</code></pre>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/fathur/Arisan">Arisan</a> is maintained by <a href="https://github.com/fathur">fathur</a>.</span>
