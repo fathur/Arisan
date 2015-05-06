@@ -8,10 +8,12 @@
     <meta name="description" content="sistem informasi e-performance ombudsman RI">
     <meta name="author" content="Lugas">
     <link rel="icon" href="../../favicon.ico">
-	<title>Arisan</title>
+	<title>{{ trans('layout.title') }}</title>
+	
 	<script type="text/javascript">
 	var baseUrl = "{{ URL::route('home') }}";
 	</script>
+
 	{{ HTML::style('css/bootstrap.css') }}
 	{{ HTML::style('css/font-awesome.min.css') }}
 	{{ HTML::style('css/main.css') }}
@@ -30,15 +32,13 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{{ URL::route('home') }}">Arisan</a>
+				<a class="navbar-brand" href="{{ URL::route('home') }}">{{ trans('layout.title') }}</a>
 			</div>
 
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li>{{ HTML::linkRoute('search.index','Search') }}</li>
+					<li>{{ HTML::linkRoute('search.index', trans('layout.search')) }}</li>
 				</ul>
-
-				
 			</div>
 		</div>
 	</nav>

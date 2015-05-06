@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
 	<div class="col-sm-12">
-		<h2>Import</h2>
+		<h2>{{ trans('import.title') }}</h2>
 	</div>
 </div>
 
@@ -23,12 +23,12 @@
 	<div class="col-sm-12">
 		{{ Form::open(array('route' => 'import.upload', 'files'=>true)) }}
 		<div class="form-group">
-			<label for="sheet">Input your sheet</label>
+			<label for="sheet">{{ trans('import.upload.label') }}</label>
 			{{ Form::file('sheet') }}
-			<p class="help-block">Hanya menerima file *.xlsx</p>
+			<p class="help-block">{{ trans('import.upload.remark') }}</p>
 		</div>
 			
-			{{ Form::submit('Import', ['class' => 'btn btn-default']) }}
+			{{ Form::submit(trans('import.upload.button'), ['class' => 'btn btn-default']) }}
 		{{ Form::close() }}
 	</div>
 </div>

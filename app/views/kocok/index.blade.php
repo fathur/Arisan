@@ -13,17 +13,17 @@
 		<div class="counter-action">		
 			<button class="btn btn-lg btn-success" id="btn-kocok">
 				<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-				Kocok
+				{{ trans('shake.start') }}
 			</button>
 			<div class="stop">
 				<button class="btn btn-lg btn-danger hide" id="btn-stop">
 					<span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
-					Stop
+					{{ trans('shake.stop') }}
 				</button>
 				
 			</div>
 			<div class="reset">
-				<a href="#" id="btn-reset" class="hide">Reset</a>
+				<a href="#" id="btn-reset" class="hide">{{ trans('shake.reset') }}</a>
 			</div>
 		</div>
 	</div>
@@ -40,7 +40,7 @@
 
 	$('#btn-kocok').click(function() {
 		var $this = $(this);
-		$this.addClass('disabled').html('Sabar...');
+		$this.addClass('disabled').html("{{ trans('shake.wait') }}...");
 		$('#btn-reset').addClass('hide');
 		$('#btn-stop').removeClass('hide').removeClass('disabled');
 
@@ -70,7 +70,7 @@
 					'display': 'none'
 				})
 				.slideDown('slow');
-			$('#btn-kocok').html('Selesai');
+			$('#btn-kocok').html("{{ trans('shake.finish') }}");
 			$('#btn-reset').removeClass('hide');
 
 		});
@@ -85,7 +85,7 @@
 			$('#win-nama').html('');
 			$('#win-ba').html('');
 		});
-		$('#btn-kocok').removeClass('disabled').html('Kocok');
+		$('#btn-kocok').removeClass('disabled').html("{{ trans('shake.start') }}");
 		$('#btn-stop').addClass('hide');
 
 	});

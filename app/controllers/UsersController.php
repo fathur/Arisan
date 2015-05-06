@@ -2,6 +2,8 @@
 
 class UsersController extends \BaseController {
 
+
+
 	function __construct()
 	{
 		$this->beforeFilter('login');

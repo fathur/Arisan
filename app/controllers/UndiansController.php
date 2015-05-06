@@ -97,8 +97,8 @@ class UndiansController extends \BaseController {
 
 	public function getGenerate($member_number)
 	{
-		$member = Member::where('member_number','=',$member_number)->first();
 
+		$member = Member::where('member_number','=',$member_number)->first();
 		if ($this->generate($member)) {
 			Session::flash('alertClass', 'alert-success');
 			Session::flash('message', 'Voucher baru telah terbuat');

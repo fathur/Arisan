@@ -8,10 +8,12 @@
     <meta name="description" content="sistem informasi e-performance ombudsman RI">
     <meta name="author" content="Lugas">
     <link rel="icon" href="../../favicon.ico">
-	<title>Arisan</title>
+	<title>{{ trans('layout.title') }}</title>
+
 	<script type="text/javascript">
 	var baseUrl = "{{ URL::route('home') }}";
 	</script>
+
 	{{ HTML::style('css/bootstrap.css') }}
 	{{ HTML::style('css/font-awesome.min.css') }}
 	{{ HTML::style('css/main.css') }}
@@ -30,26 +32,26 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{{ URL::route('home') }}">Arisan</a>
+				<a class="navbar-brand" href="{{ URL::route('home') }}">{{ trans('layout.title') }}</a>
 			</div>
 
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li>{{ HTML::linkRoute('users.index','Users') }}</li>
+					<li>{{ HTML::linkRoute('users.index', trans('navigation.user')) }}</li>
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Members <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ trans('navigation.member.expand') }} <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li>{{ HTML::linkRoute('members.index', 'View Members') }}</li>
-							<li>{{ HTML::linkRoute('import.form', 'Import Members') }}</li>
+							<li>{{ HTML::linkRoute('members.index', trans('navigation.member.view') ) }}</li>
+							<li>{{ HTML::linkRoute('import.form', trans('navigation.member.import') ) }}</li>
 						</ul>
 					</li>
-					<li>{{ HTML::linkRoute('undian.all', 'Undian') }}</li>
-					<li>{{ HTML::linkRoute('kocok.index', 'Kocok') }}</li>
+					<li>{{ HTML::linkRoute('undian.all', trans('navigation.lottery')) }}</li>
+					<li>{{ HTML::linkRoute('kocok.index', trans('navigation.shake')) }}</li>
 				</ul>
 
 				@if(Sentry::check())
 				<ul class="nav navbar-nav navbar-right">
-					<li>{{Html::linkRoute('auth.logout','Logout')}}</li>
+					<li>{{Html::linkRoute('auth.logout', trans('navigation.logout'))}}</li>
 				</ul>
 				@endif 
 			</div>

@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
 	<div class="col-sm-12">
-		<h1>Daftar Anggota</h1>
+		<h1>{{ trans('member.list.title') }}</h1>
 	</div>
 </div>
 
@@ -21,7 +21,7 @@
 <div class="row information">
 	<div class="col-sm-offset-4 col-sm-4 text-center">
 		<div class="alert alert-info">
-			<h3>Total Member</h3>
+			<h3>{{ trans('member.list.total') }}</h3>
 			<h2>{{$total}}</h2>
 		</div>
 	</div>
@@ -31,9 +31,9 @@
 	<div class="col-sm-12">
 		{{ Form::open(['route' => 'members.search', 'method' => 'GET']) }}
 		<div class="input-group">
-			{{ Form::text('search', Input::get('search'), ['class' => 'form-control', 'placeholder' => 'Cari Nama atau Nomor Anggota']) }}
+			{{ Form::text('search', Input::get('search'), ['class' => 'form-control', 'placeholder' => trans('member.list.search.placeholder')]) }}
 			<span class="input-group-btn">
-				{{ Form::submit('Cari!', ['class' => 'btn btn-primary']); }}
+				{{ Form::submit(trans('member.list.search.button'), ['class' => 'btn btn-primary']); }}
 			</span>
 		</div>
 		{{ Form::close() }}
@@ -42,11 +42,11 @@
 
 <div class="row">
 	<div class="col-xs-6">
-		{{ HTML::linkRoute('members.create', 'Add', [], ['class' => 'btn btn-primary']) }}
+		{{ HTML::linkRoute('members.create', trans('member.list.add'), [], ['class' => 'btn btn-primary']) }}
 	</div>
 	<div class="col-xs-6">
 		<buttoon id="destroy-members" class="pull-right btn btn-danger" data-toggle="modal" data-target="#modalDestroyMembers">
-			<span class="glyphicon glyphicon-warning-sign"></span> Destroy
+			<span class="glyphicon glyphicon-warning-sign"></span> {{ trans('member.list.destroy') }}
 		</buttoon>
 	</div>
 </div>
@@ -56,9 +56,9 @@
 		<table class="table table-condensed">
 			<thead>
 				<tr>
-					<th>Nomor Anggota</th>
-					<th>Nama</th>
-					<th>Voucher</th>
+					<th>{{ trans('member.number.label') }}</th>
+					<th>{{ trans('member.name.label') }}</th>
+					<th>{{ trans('member.voucher.label') }}</th>
 				</tr>
 			</thead>
 			<tbody>

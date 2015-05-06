@@ -45,6 +45,7 @@ Route::get('kocok/menang/{nomor_undian}', ['as' => 'kocok.menang', 'uses' => 'Ko
 
 
 Route::get('test', function() {
-	$undian = Undian::where('undian_number','=',232699)->get();
-	dd(count($undian));
+$var = 5;
+$var += --$var + $var++;
+echo $var;
 });
