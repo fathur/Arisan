@@ -6,7 +6,7 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"cartalyst/sentry": "2.1.*",
-		"phpoffice/phpexcel": "dev-master"
+		"phpoffice/phpexcel": "1.8.*"
 	},
 	"require-dev": {
     	"way/generators": "~2.0",
