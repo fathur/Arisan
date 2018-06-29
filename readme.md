@@ -4,6 +4,8 @@ Aplikasi untuk mengocok hasil arisan
 
 ## Cara instalasi
 
+Requriement: *PHP 7.0*. Tidak berjalan di PHP >= 7.1
+
 Buka terminal atau command prompt.
 
 Pindah ke direktori web aplikasi root, kemudian eksekusi kode berikut untuk menyalin kode dari github.
